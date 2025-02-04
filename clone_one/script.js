@@ -79,10 +79,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Create and display an enemy word
-    function createEnemyWord() {
-        if (!gameActive) return;
+    async function fetchRandomWord() {
+        try {
+            const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+            const data = await response.json();
+            return data[0];
+        } catch (error) {
+            console.error('Error fetching random word:', error);
+            return 'default'; // Fallback word in case of error
+        }
+    
 
-        const words = ["apple", "banana", "grape", "cherry", "mango", "xylophone", "complicated", "long"];
         const word = words[Math.floor(Math.random() * words.length)];
         const wordElement = document.createElement("div");
         wordElement.classList.add("enemy-word");

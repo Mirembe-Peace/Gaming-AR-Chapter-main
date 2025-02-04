@@ -10,16 +10,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    max-height: 100vh;
     background: linear-gradient(180deg, #000 0%, #003300 100%); /* Matrix-like dark green gradient */
     color: #4caf50; /* Matrix green */
-    overflow: auto;
+    overflow: none;
 }
 
 /* Game container */
 .game-container {
     width: 100%;
-    max-width: 800px;
     text-align: center;
     border: 2px solid #4caf50; /* Glowing green border */
     border-radius: 10px;
@@ -41,12 +40,12 @@ header {
 /* Game canvas */
 #gameCanvas {
     width: 100%;
-    height: 400px;
+    height: 46vh;
     background-color: #001100; /* Dark green console area */
     border: 2px solid #4caf50;
     border-radius: 10px;
     position: relative;
-    overflow: auto;
+    overflow: none;
     box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Glow effect */
 }
 
