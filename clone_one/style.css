@@ -67,13 +67,6 @@ footer {
     text-shadow: 0 0 10px #4caf50;
     transition: top 0.05s linear; /* Smooth movement */
 }
-#keyboard-guide {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-
-
 
 /* Typing console */
 #typingConsole {

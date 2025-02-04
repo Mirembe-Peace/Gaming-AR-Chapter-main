@@ -8,12 +8,11 @@ let enemyInterval, moveInterval;
 let username = "";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const gameCanva = document.getElementById("gameCanvas");
+    const gameCanvas = document.getElementById("gameCanvas");
     const typingInput = document.getElementById("typingInput");
     const leaderboardList = document.getElementById("leaderboardList");
     const playAgainButton = document.getElementById("playAgain");
     const typingConsole = document.getElementById("typingConsole");
-    
 
     // Initialize game on load
     function initGame() {
@@ -79,51 +78,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    let gameActive = true;
-const gameCanvas = document.getElementById("gameCanvas");
+    // Create and display an enemy word
+    function createEnemyWord() {
+        if (!gameActive) return;
 
-// Fetch words from an API
-async function fetchWords() {
-    try {
-        const response = await fetch('https://random-word-api.herokuapp.com/word?number=10');
-        const words = await response.json();
-        return words;
-    } catch (error) {
-        console.error('Error fetching words:', error);
-        return ["default", "words", "in", "case", "of", "error"];
+        const words = ["apple", "banana", "grape", "cherry", "mango", "xylophone", "complicated", "long"];
+        const word = words[Math.floor(Math.random() * words.length)];
+        const wordElement = document.createElement("div");
+        wordElement.classList.add("enemy-word");
+        wordElement.textContent = word;
+        wordElement.dataset.fullWord = word;
+        wordElement.style.position = "absolute";
+        wordElement.style.left = `${Math.random() * (gameCanvas.clientWidth - 100)}px`;
+        wordElement.style.top = "0px";
+
+        gameCanvas.appendChild(wordElement);
     }
-}
 
-// Function to generate and display words
-async function generateWord() {
-    if (!gameActive) return;
+    // Move enemies downward
+    function moveEnemies() {
+        const enemies = document.querySelectorAll(".enemy-word");
+        enemies.forEach((enemy) => {
+            let topPosition = parseInt(enemy.style.top);
+            enemy.style.top = `${topPosition + 2}px`;
 
-    const words = await fetchWords();
-    const word = words[Math.floor(Math.random() * words.length)];
-    const wordElement = document.createElement("div");
-    wordElement.classList.add("enemy-word");
-    wordElement.textContent = word;
-    wordElement.dataset.fullWord = word;
-    wordElement.style.position = "absolute";
-    wordElement.style.left = `${Math.random() * (gameCanvas.clientWidth - 100)}px`;
-    wordElement.style.top = "0px";
-
-    gameCanvas.appendChild(wordElement);
-}
-
-// Move enemies downward
-function moveEnemies() {
-    const enemies = document.querySelectorAll(".enemy-word");
-    enemies.forEach((enemy) => {
-        let topPosition = parseInt(enemy.style.top);
-        enemy.style.top = `${topPosition + 2}px`;
-
-        if (topPosition > gameCanvas.clientHeight - 30) {
-            endGame();
-            enemy.remove();
-        }
-    });
-}
+            if (topPosition > gameCanvas.clientHeight - 30) {
+                endGame();
+                enemy.remove();
+            }
+        });
+    }
 
     // Typing input logic
     typingInput.addEventListener("input", () => {
@@ -173,7 +157,6 @@ function moveEnemies() {
         initGame();
     });
 
-    
     // Restart game on "Play Again" button click
     playAgainButton.addEventListener("click", () => {
         location.reload();
