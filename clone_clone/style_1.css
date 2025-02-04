@@ -57,13 +57,13 @@ header h1, header h2 {
 }
 .right-hand { 
     background-color: purple;
-    box-shadow: 0 0 10px purple; 
+    box-shadow: 0 0 10px rgb(142, 38, 142); 
 }
 
 
 
 footer {
-    margin-top: 10px; /* Add margin for spacing */
+    margin-top: 500px; /* Add margin for spacing */
     
 }
 
