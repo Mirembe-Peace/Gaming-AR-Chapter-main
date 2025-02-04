@@ -78,29 +78,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Create and display an enemy word
-    async function fetchRandomWord() {
-        try {
-            const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
-            const data = await response.json();
-            return data[0];
-        } catch (error) {
-            console.error('Error fetching random word:', error);
-            return 'default'; // Fallback word in case of error
-        }
-    
-
-        const word = words[Math.floor(Math.random() * words.length)];
-        const wordElement = document.createElement("div");
-        wordElement.classList.add("enemy-word");
-        wordElement.textContent = word;
-        wordElement.dataset.fullWord = word;
-        wordElement.style.position = "absolute";
-        wordElement.style.left = `${Math.random() * (gameCanvas.clientWidth - 100)}px`;
-        wordElement.style.top = "0px";
-
-        gameCanvas.appendChild(wordElement);
+    // Fetch a single random word from the API
+async function fetchRandomWord() {
+    try {
+        const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+        const data = await response.json();
+        return data[0]; // Return the fetched word
+    } catch (error) {
+        console.error('Error fetching random word:', error);
+        return 'default'; // Fallback word in case of error
     }
+}
+
+// Create and display an enemy word
+async function createEnemyWord() {
+    const word = await fetchRandomWord(); // Fetch a word asynchronously
+
+    const wordElement = document.createElement("div");
+    wordElement.classList.add("enemy-word");
+    wordElement.textContent = word;
+    wordElement.dataset.fullWord = word;
+    wordElement.style.position = "absolute";
+    wordElement.style.left = `${Math.random() * (gameCanvas.clientWidth - 100)}px`;
+    wordElement.style.top = "0px";
+
+    gameCanvas.appendChild(wordElement);
+}
 
     // Move enemies downward
     function moveEnemies() {
