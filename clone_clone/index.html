@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZType Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <audio id="typing-sound" src="typing-sound.mp3"></audio>
+    
+    <div class="game-container">
+        <header>
+            <h1>Typing Game</h1>
+            <div id="score">Score: 0 | Level: 1</div>
+        </header>
+
+        <div id="gameCanvas"></div>
+
+        <div id="leaderboard">
+            <h2>Leaderboard</h2>
+            <ol id="leaderboardList"></ol>
+        </div>
+
+        <footer>
+            <p>Type words to destroy enemies!</p>
+            <input type="text" id="usernameInput" placeholder="Enter your username" />
+            <button id="startGame">Start Game</button>
+            <div id="typingConsole" style="display: none;"> <!-- Thematic console -->
+                <p>Command Console:</p>
+                <input type="text" id="typingInput" autofocus placeholder="Type here..." />
+            </div>
+            <button id="playAgain" style="display: none;">Play Again</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

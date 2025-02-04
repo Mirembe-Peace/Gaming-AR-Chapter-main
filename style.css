@@ -1,0 +1,150 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Courier New", Courier, monospace; /* Monospace font for console look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(180deg, #000 0%, #003300 100%); /* Matrix-like dark green gradient */
+    color: #4caf50; /* Matrix green */
+    overflow: auto;
+}
+
+/* Game container */
+.game-container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    border: 2px solid #4caf50; /* Glowing green border */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); /* Glow effect */
+    background: rgba(0, 0, 0, 0.9); /* Slightly transparent black background */
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: #4caf50; /* Matrix green */
+    text-shadow: 0 0 5px #4caf50; /* Glowing text */
+}
+
+/* Game canvas */
+#gameCanvas {
+    width: 100%;
+    height: 400px;
+    background-color: #001100; /* Dark green console area */
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    position: relative;
+    overflow: auto;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Glow effect */
+}
+
+/* Footer styles */
+footer {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #4caf50;
+    text-shadow: 0 0 5px #4caf50;
+}
+
+/* Enemy words */
+.enemy-word {
+    color: #4caf50;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+    text-shadow: 0 0 10px #4caf50;
+    transition: top 0.05s linear; /* Smooth movement */
+}
+
+/* Typing console */
+#typingConsole {
+    background: rgba(0, 17, 0, 0.8); /* Dark green transparent console */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Glow effect */
+}
+
+#typingConsole p {
+    font-size: 16px;
+    color: #4caf50; /* Matrix green */
+    margin: 0 0 8px;
+    font-family: monospace;
+    text-shadow: 0 0 5px #4caf50;
+}
+
+/* Typing input */
+#typingInput {
+    border: 2px solid #4caf50; /* Green border */
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 8px;
+    width: 100%;
+    color: #4caf50;
+    background: #000; /* Black input box */
+    outline: none; /* Remove default focus outline */
+    text-align: center;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Glow effect */
+}
+
+/* Buttons */
+button {
+    background: #000;
+    color: #4caf50;
+    border: 2px solid #4caf50;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    text-shadow: 0 0 5px #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Glow effect */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background: #003300; /* Dark green on hover */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 1); /* Intense glow on hover */
+}
+
+/* Leaderboard */
+#leaderboard {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(0, 17, 0, 0.8);
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Glow effect */
+}
+
+#leaderboard h2 {
+    font-size: 1.5em;
+    color: #4caf50;
+    text-shadow: 0 0 5px #4caf50;
+}
+
+#leaderboardList {
+    list-style: none;
+    padding: 0;
+    color: #4caf50;
+}
+
+#leaderboardList li {
+    font-size: 1.2em;
+    margin: 5px 0;
+    text-shadow: 0 0 5px #4caf50;
+}
